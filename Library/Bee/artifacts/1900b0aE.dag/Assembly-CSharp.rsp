@@ -366,6 +366,10 @@
 "Assets/Scripts/BillboardScript.cs"
 "Assets/Scripts/CameraController.cs"
 "Assets/Scripts/DogPuppet.cs"
+"Assets/Scripts/EventSystem.cs"
+"Assets/Scripts/GameController.cs"
+"Assets/Scripts/NPCController.cs"
+"Assets/Scripts/Services.cs"
 "Assets/Scripts/TrueBillboardScript.cs"
 -langversion:9.0
 /deterministic

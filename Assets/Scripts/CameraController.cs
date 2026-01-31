@@ -19,11 +19,11 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         if (locked) return;
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(0)) 
         {
             LastMousePos = Input.mousePosition;
         }
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
         {
             Vector2 currentMousePos = Input.mousePosition;
             if (LastMousePos.x != currentMousePos.x)
