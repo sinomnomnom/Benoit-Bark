@@ -373,6 +373,7 @@
 "Assets/Scripts/GameController.cs"
 "Assets/Scripts/NPCController.cs"
 "Assets/Scripts/PlayerController.cs"
+"Assets/Scripts/ScentDatabase.cs"
 "Assets/Scripts/ScentManager.cs"
 "Assets/Scripts/Services.cs"
 "Assets/Scripts/TrueBillboardScript.cs"

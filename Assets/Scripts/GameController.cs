@@ -1,3 +1,4 @@
+using OVR.Components;
 using OVR.Data;
 using System;
 using System.Collections;
@@ -24,6 +25,7 @@ public class GameController : MonoBehaviour
     private Event gamemodeChanged;
     [SerializeField]
     private DialogueRunner dialogueRunner;
+    public OlfactoryEpithelium olfactoryEpithelium;
 
     void Awake()
     {
@@ -36,7 +38,7 @@ public class GameController : MonoBehaviour
         Services.GameController = this;
         Services.EventSystem = new EventSystem();
         Services.DialogueRunner = dialogueRunner;
-        Services.ScentManager = new ScentManager(OVRPlugin);
+        Services.ScentManager = new ScentManager(OVRPlugin, olfactoryEpithelium);
         /*
         Services.Prefabs = GameObject.FindObjectOfType<Prefabs>();
         Services.YogaClass = new YogaClass();

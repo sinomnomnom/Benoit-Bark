@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 291435010}
   - component: {fileID: 291435009}
   - component: {fileID: 291435011}
+  - component: {fileID: 291435012}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -302,10 +303,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7fa6b1a861aae84e9b6c56149904f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraController: {fileID: 0}
-  DogController: {fileID: 0}
+  CameraController: {fileID: 963194230}
+  DogController: {fileID: 1258449693}
+  OVRPlugin: {fileID: 5897886265953266890, guid: a0061ccee76b93948ab6788c6ff845a9, type: 3}
   dogActive: 1
   dialogueRunner: {fileID: 723415537}
+  olfactoryEpithelium: {fileID: 1044734643}
 --- !u!4 &291435010
 Transform:
   m_ObjectHideFlags: 0
@@ -371,6 +374,35 @@ MonoBehaviour:
   deviceHolder: {fileID: 0}
   resultTF: {fileID: 0}
   ION_Sub_ReadyStateCharacteristic: 6e400005-b5a3-f393-e0a9-e50e24dcca9e
+--- !u!114 &291435012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291435008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26aa562150dfda04e9d30861a8fb8500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scents:
+  - {fileID: 11400000, guid: 518836e565f2f3045af63e4f67a3c364, type: 2}
+  - {fileID: 11400000, guid: 1c00eed99bfb9a64aa1233227614e0af, type: 2}
+  - {fileID: 11400000, guid: 30d8fb1c44133194e8138d51550bdc83, type: 2}
+  - {fileID: 11400000, guid: 8120a2cb469484c4995ac9678580c973, type: 2}
+  - {fileID: 11400000, guid: e3491115128056d48a7faebdae54d555, type: 2}
+  - {fileID: 11400000, guid: dad2b47df7d1d3c44ab900bc36554fb9, type: 2}
+  - {fileID: 11400000, guid: 5c9513703503dcc45b929c75b9f1958d, type: 2}
+  - {fileID: 11400000, guid: 983904374bd1b6d428d6052fdb317200, type: 2}
+  - {fileID: 11400000, guid: 1402dfa777fb53f45b40cf53d541a113, type: 2}
+  - {fileID: 11400000, guid: 88c58cbbabf506647a648b4f5f3d8d26, type: 2}
+  - {fileID: 11400000, guid: 02cfc872576e65340985217d8f6c25c3, type: 2}
+  - {fileID: 11400000, guid: 182f4e098346d3348957f1ab525aa452, type: 2}
+  - {fileID: 11400000, guid: 8f4f275c5dd153a4f9ff5fc0f989de4b, type: 2}
+  - {fileID: 11400000, guid: 1b803fb9dc3c9aa4db611d00c13c4289, type: 2}
+  - {fileID: 11400000, guid: 3f66668ba231e1a48a04b146e7b6822a, type: 2}
+  - {fileID: 11400000, guid: 77598ecc541fd2d4d8180482aa1411ac, type: 2}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,6 +1095,17 @@ CapsuleCollider:
   m_Height: 25.215374
   m_Direction: 0
   m_Center: {x: 4.05444, y: 0, z: 0}
+--- !u!114 &1258449693 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4086952405048671985, guid: 15158e5c724f5ef41a4f8b818d3a12d3, type: 3}
+  m_PrefabInstance: {fileID: 812589743}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258449687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a258b8d634124ae4ab673f3b2c544a4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1276489509 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5921054385357416654, guid: 44472bdd040439c4f8c13ad0d942e87a, type: 3}
@@ -2125,9 +2168,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551345373587862774}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0daba678f8ffcec4898a199eb4f75a65, type: 2}
+  m_Controller: {fileID: 9100000, guid: 127112b18d4cb2149a269430977f328e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

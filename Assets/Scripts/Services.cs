@@ -10,4 +10,5 @@ public static class Services
     public static EventSystem EventSystem;
     public static DialogueRunner DialogueRunner;
     public static ScentManager ScentManager;
+    public static ScentDatabase ScentDatabase;
 }
