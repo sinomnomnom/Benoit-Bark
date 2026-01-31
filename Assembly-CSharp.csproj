@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4FDB8ED5-A2DA-60C9-80A4-FEF70ED5C190}</ProjectGuid>
+    <ProjectGuid>{E45B1301-6C99-CF0E-69B9-5F103B56A236}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -56,14 +56,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Users\Simon\Unity\Benoit-Bark\Library\PackageCache\dev.yarnspinner.unity@040b0f4542\SourceGenerator\YarnSpinner.Unity.SourceCodeGenerator.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.62f3\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.62f3\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BillboardScript.cs" />
+    <Compile Include="Assets\Scripts\BillboardScript.cs" />
+    <Compile Include="Assets\Scripts\TrueBillboardScript.cs" />
+    <Compile Include="Assets\Scripts\DogPuppet.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\UnlitScreenspaceShader.shader" />
+    <None Include="Assets\Materials\UnlitScreenspaceShader.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -404,6 +407,34 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Yarn.System.Text.Encodings.Web">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@040b0f4542\Runtime\DLLs\Yarn.System.Text.Encodings.Web.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Yarn.Microsoft.Bcl.AsyncInterfaces">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@040b0f4542\Runtime\DLLs\Yarn.Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Yarn.System.Threading.Tasks.Extensions">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@040b0f4542\Runtime\DLLs\Yarn.System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Yarn.System.Text.Json">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@040b0f4542\Runtime\DLLs\Yarn.System.Text.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Yarn.Microsoft.Extensions.FileSystemGlobbing">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@040b0f4542\Runtime\DLLs\Yarn.Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="YarnSpinner.Compiler">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@040b0f4542\Runtime\DLLs\YarnSpinner.Compiler.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="YarnSpinner">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@040b0f4542\Runtime\DLLs\YarnSpinner.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
@@ -944,6 +975,14 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="YarnSpinner.Unity">
+      <HintPath>Library\ScriptAssemblies\YarnSpinner.Unity.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="YarnSpinner.Unity.Editor">
+      <HintPath>Library\ScriptAssemblies\YarnSpinner.Unity.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
