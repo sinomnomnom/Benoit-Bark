@@ -60,7 +60,7 @@ public class DogPuppet : MonoBehaviour
         transform.Translate(velocity * speed * Time.deltaTime, Space.World);
 
 
-        velocity *= .95f;
+        velocity *= .9f;
     }
 
     private Vector3 GetDirection()
