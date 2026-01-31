@@ -64,10 +64,12 @@
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\NPCController.cs" />
     <Compile Include="Assets\Scripts\BillboardScript.cs" />
+    <Compile Include="Assets\Scripts\ScentManager.cs" />
     <Compile Include="Assets\Scripts\TrueBillboardScript.cs" />
     <Compile Include="Assets\Scripts\EventSystem.cs" />
     <Compile Include="Assets\Scripts\Services.cs" />
-    <Compile Include="Assets\Scripts\DogPuppet.cs" />
+    <Compile Include="Assets\Scripts\DogController.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1057,6 +1059,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="OVR.AdminDebugger.csproj">
+      <Project>{777A1B9C-8614-D13B-EC35-E0907E48C0DF}</Project>
+      <Name>OVR.AdminDebugger</Name>
+    </ProjectReference>
+    <ProjectReference Include="OVR.UnityPlugin.csproj">
+      <Project>{F89696B7-2558-A329-B37C-38A8B1C08F9B}</Project>
+      <Name>OVR.UnityPlugin</Name>
+    </ProjectReference>
+    <ProjectReference Include="OVR.UnityPlugin.Editor.csproj">
+      <Project>{BDADCEA7-8BE5-DAE2-4163-164BB664CE69}</Project>
+      <Name>OVR.UnityPlugin.Editor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
