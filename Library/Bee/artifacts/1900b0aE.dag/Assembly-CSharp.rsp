@@ -364,6 +364,7 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.62f3/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"Library/PackageCache/dev.yarnspinner.unity@040b0f4542/SourceGenerator/YarnSpinner.Unity.SourceCodeGenerator.dll"
 "Assets/Scripts/BillboardScript.cs"
+"Assets/Scripts/CameraController.cs"
 "Assets/Scripts/DogPuppet.cs"
 "Assets/Scripts/TrueBillboardScript.cs"
 -langversion:9.0

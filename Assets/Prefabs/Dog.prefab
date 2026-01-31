@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5584042347414224745}
   - component: {fileID: 4086952405048671985}
+  - component: {fileID: 1287115060105047630}
   m_Layer: 6
   m_Name: Dog
   m_TagString: Dog
@@ -46,8 +47,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2742812629226795513}
-  direction: {x: 0, y: 0}
+  direction: {x: 0, y: 0, z: 0}
   speed: 5
+--- !u!114 &1287115060105047630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8108909991227009454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad7602b54c71d14a8c1d9736ed0de3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8991038823233386158
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +71,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6445320204024236440}
   - component: {fileID: 7203747446495206500}
-  - component: {fileID: 2350796164168582370}
   - component: {fileID: 2742812629226795513}
   m_Layer: 6
   m_Name: Sprite
@@ -134,18 +146,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2350796164168582370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8991038823233386158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ad7602b54c71d14a8c1d9736ed0de3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &2742812629226795513
 Animator:
   serializedVersion: 5
