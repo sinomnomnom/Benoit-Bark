@@ -306,6 +306,7 @@ MonoBehaviour:
   CameraController: {fileID: 963194230}
   DogController: {fileID: 1258449693}
   OVRPlugin: {fileID: 5897886265953266890, guid: a0061ccee76b93948ab6788c6ff845a9, type: 3}
+  ScentDatabase: {fileID: 291435012}
   dogActive: 1
   dialogueRunner: {fileID: 723415537}
   olfactoryEpithelium: {fileID: 1044734643}
@@ -1515,6 +1516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueNode: Start
+  NPCScent: 5
 --- !u!54 &1715957286
 Rigidbody:
   m_ObjectHideFlags: 0

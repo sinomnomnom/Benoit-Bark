@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
     public CameraController CameraController;
     public DogController DogController;
     public AssemblyDefinitionAsset OVRPlugin;
+    public ScentDatabase ScentDatabase;
 
     public bool dogActive = true;
 
@@ -39,6 +40,7 @@ public class GameController : MonoBehaviour
         Services.EventSystem = new EventSystem();
         Services.DialogueRunner = dialogueRunner;
         Services.ScentManager = new ScentManager(OVRPlugin, olfactoryEpithelium);
+        Services.ScentDatabase = ScentDatabase;
         /*
         Services.Prefabs = GameObject.FindObjectOfType<Prefabs>();
         Services.YogaClass = new YogaClass();
@@ -46,9 +48,12 @@ public class GameController : MonoBehaviour
         */
     }
 
-    public void SetTheme(OdorAsset scent)
+    public void SetTheme(ScentDatabase.Scents scent)
     {
-        
+        //scent
+        Services.ScentManager.SetActiveScent(scent);
+
+        //bg
     }
 
     public void SwitchActiveCharacter()

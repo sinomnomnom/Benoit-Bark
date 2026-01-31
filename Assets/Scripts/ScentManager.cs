@@ -17,18 +17,22 @@ public class ScentManager
     {
         OVRPLugin = plugin;
         olfactoryEpithelium = nose;
-
     }
 
-    public void SetActiveScent(OdorAsset newScent)
+    public void SetActiveScent(ScentDatabase.Scents scent)
     {
-        activeScent = newScent;
+        if (scent == ScentDatabase.Scents.NONE)
+        {
+            activeScent = null;
+        }
+        else
+        {
+            activeScent = Services.ScentDatabase.GetScent(scent);
+        }
     }
 
     public void Update()
     {
-        olfactoryEpithelium.PlayOdor(activeScent, 1f);
+        if (activeScent != null) olfactoryEpithelium.PlayOdor(activeScent, 1f);
     }
-
-
 }

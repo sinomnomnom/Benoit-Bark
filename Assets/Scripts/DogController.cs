@@ -15,9 +15,6 @@ public class DogController : MonoBehaviour
     Transform cam;
     GameController controller;
    
-    
-    
-    
     List<Collider> TriggerList = new List<Collider>();
 
     public bool active = true;
@@ -30,8 +27,6 @@ public class DogController : MonoBehaviour
 
     private Vector3 velocity;
    
-    
-
     private void Start()
     {
         cam = Camera.main.transform;
@@ -131,11 +126,13 @@ public class DogController : MonoBehaviour
             {
                 case "NPC":
                     print("npc interaction");
-                    string node = closestCol.gameObject.GetComponent<NPCController>().dialogueNode;
+                    NPCController npc = closestCol.gameObject.GetComponent<NPCController>();
+                    string node = npc.dialogueNode;
                     print(node);
                     Services.DialogueRunner.StartDialogue(node);
+                    Services.GameController.SetTheme(npc.NPCScent);
                     interacting = true;
-                    Services.DialogueRunner.onDialogueComplete.AddListener(()  => interacting = false);
+                    Services.DialogueRunner.onDialogueComplete.AddListener(() => { interacting = false; Services.GameController.SetTheme(ScentDatabase.Scents.NONE); }); 
                     break;
                 case "Item":
                     print("Item interaction");
