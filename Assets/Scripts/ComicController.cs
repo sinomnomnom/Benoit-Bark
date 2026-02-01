@@ -12,6 +12,8 @@ public class ComicIntroController : MonoBehaviour
     public Image panelImage;
     public CanvasGroup canvasGroup;
     public CanvasGroup backgroundCanvasGroup;
+    public AudioSource audioSource;
+    public AudioClip music;
 
     [Header("Input")]
     public KeyCode advanceKey = KeyCode.Space;
@@ -20,6 +22,7 @@ public class ComicIntroController : MonoBehaviour
 
     void Start()
     {
+        audioSource.PlayOneShot(music);
         if (panels.Length == 0)
         {
             Debug.LogError("No comic panels assigned!");
@@ -69,7 +72,7 @@ public class ComicIntroController : MonoBehaviour
             yield break;
         }
 
-        for (float t = 0; t < 1; t += Time.deltaTime * 4)
+        for (float t = 0; t < 1; t += Time.deltaTime * 2)
         {
             canvasGroup.alpha = t;
             yield return null;
@@ -78,16 +81,19 @@ public class ComicIntroController : MonoBehaviour
 
     async Task FadeOut()
     {
-        for (float t = 1; t > 0; t -= Time.deltaTime * 4)
+        for (float t = 1; t > 0; t -= Time.deltaTime)
         {
             backgroundCanvasGroup.alpha = t;
-            Task.Yield();
+            await Task.Yield();
         }
     }
 
     async void EndComic()
     {
+        StartCoroutine(FadePanel(null));
+        await Task.Delay(2000);
         await FadeOut();
+        audioSource.Stop();
         // Hide comic UI
         panelImage.gameObject.SetActive(false);
 

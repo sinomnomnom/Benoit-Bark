@@ -23,6 +23,10 @@ public class DogController : MonoBehaviour
     public float speed;
     private bool left;
     private bool moving;
+
+    public AudioClip sniff;
+    public AudioClip whoosh;
+    public AudioSource audioSource;
   
 
     private Vector3 velocity;
@@ -109,11 +113,13 @@ public class DogController : MonoBehaviour
     }
     public void SwitchPerspectives()
     {
+        audioSource.PlayOneShot(whoosh, 0.5f);
         Services.GameController.SwitchActiveCharacter();
         active = false;
     }
     public async Task Interact()
     {
+        audioSource.PlayOneShot(sniff, 1.0f);
         Collider closestCol = collider;
 
         float dist = 10000f;

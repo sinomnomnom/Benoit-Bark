@@ -10,6 +10,11 @@ public class ScentDatabase : MonoBehaviour
     public Sprite Backbround;
     public Sprite Floral;
     public Sprite Smoky;
+    public Sprite Timber;
+    public Sprite Musty;
+    public Sprite Mechanica;
+    public Sprite Winter;
+    public Sprite Sweet;
 
     public enum Scents { BARNYARRD, BEACH,
                          CITRUS, DESERT, EVERGREEN, FLORAL, KINDRED, 
@@ -32,6 +37,16 @@ public class ScentDatabase : MonoBehaviour
                 return Floral;
             case Scents.SMOKY:
                 return Smoky;
+            case Scents.TIMBER:
+                return Timber;
+            case Scents.BARNYARRD:
+                return Musty;
+            case Scents.MACHINA:
+                return Mechanica;
+            case Scents.WINTER:
+                return Winter;
+            case Scents.SWEET:
+                return Sweet;
             default:
                 return Backbround;
         }

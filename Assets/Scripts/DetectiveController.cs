@@ -5,6 +5,8 @@ public class DetectiveController : MonoBehaviour
 {
     public Animator animator;
     public Collider collider;
+    public AudioClip whoosh;
+    public AudioSource audioSource;
     Transform cam;
     
     List<Collider> TriggerList = new List<Collider>();
@@ -100,6 +102,7 @@ public class DetectiveController : MonoBehaviour
     }
     public void SwitchPerspectives()
     {
+        audioSource.PlayOneShot(whoosh, 0.5f);
         Services.GameController.SwitchActiveCharacter();
         active = false;
     }
@@ -111,6 +114,13 @@ public class DetectiveController : MonoBehaviour
         foreach (Collider col in TriggerList)
         {
             print("interacting");
+            if (col.gameObject.tag != "NPC" &&
+                col.gameObject.tag != "Dog" &&
+                col.gameObject.tag != "Item" &&
+                col.gameObject.tag != "Detective")
+            {
+                continue;
+            }
             float testDist = Vector3.Distance(col.gameObject.transform.position, transform.position);
             if (testDist < dist)
             {
@@ -132,7 +142,31 @@ public class DetectiveController : MonoBehaviour
                     Services.DialogueRunner.onDialogueComplete.AddListener(() => { interacting = false; });
                     break;
                 case "Item":
-                    print("Item interaction");
+                    print("Item interaction: " + closestCol.gameObject.name);
+                    ItemController item = closestCol.gameObject.GetComponent<ItemController>();
+
+                    if (item.door)
+                    {
+                        if (!item.locked)
+                        {
+                            transform.position = item.newPlayerPos;
+                            Services.GameController.dog.transform.position = item.newIncativePlayerPos;
+                            Services.GameController.Camera.transform.position = item.newCameraPos;
+                            break;
+                        }
+                        if (item.locked)
+                        {
+                            interacting = true;
+                            Services.DialogueRunner.StartDialogue("Locked");
+                            Services.DialogueRunner.onDialogueComplete.AddListener(() => { interacting = false; });
+                            break;
+                        }
+                    }
+                    break;
+                case "Dog":
+                    interacting = true;
+                    Services.DialogueRunner.StartDialogue("DetectiveToDog");
+                    Services.DialogueRunner.onDialogueComplete.AddListener(() => { interacting = false; Services.GameController.SetTheme(ScentDatabase.Scents.NONE); });
                     break;
                 default:
                     print("untagged item: " + closestCol.gameObject.name);

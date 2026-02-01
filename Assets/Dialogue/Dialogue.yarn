@@ -9,33 +9,80 @@ position: 107,-399
 You can't open the door.
 ===
 title: DogToDetective
-position: 461,-238
+position: 319,-398
 ---
 <<once>>
   Detective: As a private detective, I have received a request for a search from one of your guests… Matilda is her name I believe… Sometime yesterday, we suspect one of your guests went missing in the avalanche. 
   Detective: Do you know of a person that goes by the name of Paul Griffin?
-  Mr. Pratt, Hotel Owner: Hm, yes, I do recall that name. If I remember correctly, he was lodged in the East Wing, where we keep all of our pet friendly rooms. About yea high… short hair and lots of rings, I remember. His dog was more memorable than him, if I’m gonna be honest.
-  He came right behind the desk, and I pet his little head. Such a sweet and LOYAL companion. But detective, you can’t go out and look for him right now. Because of the avalanche, I can’t let anyone out of the hotel. You’ll have to stick to looking inside the hotel. Who knows, maybe he came back in the meantime.
+  Mr. Pratt, Hotel Owner: Hm, yes, I do recall that name. If I remember correctly, he was lodged in the East Wing, where we keep all of our pet friendly rooms. About yea high… short hair and lots of rings, I remember. His dog was more memorable than him, if I'm gonna be honest.
+  He came right behind the desk, and I pet his little head. Such a sweet and LOYAL companion. But detective, you can't go out and look for him right now. Because of the avalanche, I can't let anyone out of the hotel. You'll have to stick to looking inside the hotel. Who knows, maybe he came back in the meantime.
   Mr. Pratt, Hotel Owner: Wait… how did you get here through the snowstorm? The avalanche has blocked all entrances! And the road is inaccessible!
   Detective: I have my ways… After all, no one is truly missing when I'm here, just misplaced.
   Mr. Pratt, Hotel Owner: Doesn't that mean the same thing?
   Detective: ...
-  Detective: Oh! What a cute pup! You must be Paul’s dog! Sorry your owner has gone missing, buddy. But do not fret! I am an ace detective, and no one is truly lost when I’m around. Just sit tight and let me solve this mystery.
+  Detective: Oh! What a cute pup! You must be Paul's dog! Sorry your owner has gone missing, buddy. But do not fret! I am an ace detective, and no one is truly lost when I'm around. Just sit tight and let me solve this mystery.
   [TUTORIAL]: Press TAB to switch perspectives, Use SPACE to interact, and click-and-drag to move the camera.
 <<endonce>>
 <<unlock_door GameController 0>>
 Detective: Hey, there! We will be sure to find your, owner, O.K?
 ===
 title: DogToMrPratt
-position: 204,-236
+position: -206,-157
 ---
 Mr. Pratt, Hotel Owner: Oh! Running around my desk again I see! It's a welcome surprise. I hope you find your owner... Maybe your sense of smell will help you find him!
 ===
 title: DetectiveToMrPratt
-position: 281,40
+position: -208,-24
 ---
 Mr. Pratt, Hotel Owner: Hi again. I'm not trying to pressure you, but are you planning on buying a room? You've been running around my lodge for a bit, and the avalanche makes getting out extremely dangerous.
  -> I would love to stay, but I will be gone shortly, just as soon as I crack the case!
  -> I don't really DO vacation...
 Mr. Pratt, Hotel Owner: Right...
+===
+title: DogToAllen
+position: 22,-156
+---
+Allen: Hello there, dog.
+Allen: Sorry I don't have any treats.
+===
+title: DetectiveToAllen
+position: 21,-26
+---
+Allen: ...
+Allen: *sips his whiskey*
+Detective: Uhh, hello there! Keeping warm by the fire, I see. We–I, have some questions for you about a missing guest. Er- Let me introduce myself, actually. You see, I'm a detective.
+Allen: Hello there, detective. I hope no one's been murdered!
+Detective: Nono, just a missing person. Do you happen to know Joe the ski lift operator, or where one might find him?
+Allen: Everyone knows Joe, perhaps a bit too well. But I guess anyone can become an annoyance if you've been on this mountain as long as me. A missing person, ya say? Even though I know this mountain well, it would be impossible to find them after that avalanche. Ya don't think they might be buried in the snow, do ya?
+Detective: No one is truly missing… just displaced.
+Allen: That doesn't answer my question. Anyways, why don't ya get to it. What are yer questions?
+Detective: Are you a guest here? Have you talked to anybody named Paul Griffin? About yea high, lots of rings, outdoorsy type.
+Allen: I’m no guest here, so I wouldn't know nothin’ about a Paul Griffith. Actually, I became a lumberjack to get away from all the people. It clears my head, to be out in the forest. I just come ‘round here for the free hot chocolate and beer. I'm a longtime friend of Pratt’s.
+Detective: So, what kinda guy is Joe?
+Allen: He’s one of two ski lift operators on the mountain, after all, and our only mechanic, so he’s almost always in his booth. Even with the lifts down, he’s probably still sitting there.
+Detective: How do you know Joe?
+Allen: Joe and I have a bit of a feud. He drips oil everywhere, when he does get out of his cave. People blame it on me, saying it’s some of my whiskey, but if they’d just smell it, it’s clearly oil! I much prefer Michelle, the other operator who works at the top of the left. Quite beautiful, and actually spends time outside of the lift. She's actually right over there.
+===
+title: DogToJoe
+position: 234,-156
+---
+Joe, Ski Lift Operator: Agh! Why would they let a dog in my machine room!
+Joe, Ski Lift Operator: Well, you are cute...
+Joe, Ski Lift Operator: Just don't touch anything!
+===
+title: DetectiveToJoe
+position: 232,-25
+---
+Joe, Ski Lift Operator: NONONO… NO DOGS ALLOWED IN THE SKI LIFT OPERATING ROOM!!!
+Detective: Do not worry, he's a good pup.
+Joe, Ski Lift Operator: Just don't let him eat my hot Cheetos… or lick an oil.
+Detective: Uh… sure. Anyways, I'm a detective and Michelle told me you'd be in here.
+Joe, Ski Lift Operator: Don't trust ANYTHING Michelle says. She's not a true ski lift operator… at least not dedicated to her craft. Everybody knows operating the bottom ski lift is WAY more important than the top. The bottom is where all the power comes from, so I basically run both of them!
+Detective: Are you the only one who operates the lower lift?
+Joe, Ski Lift Operator: Yeah, I just said that.
+Detective: Well, we're looking for a guest at this lodge that went missing. Did you happen to see Paul Griffin go up the lift on the day of the avalanche?
+Joe, Ski Lift Operator: Of course! I know everyone that rides my lift, and Paul is one of my favorites. He actually went up about 15 minutes before the avalanche.
+Joe, Ski Lift Operator: The weird thing is, he went up with someone else. Since he's been here, I've only ever seen him go up alone. The person he was with had a full ski mask and goggles on, though. I have no idea who it was.
+Detective: Hmm, that's interesting. Thanks for your help, Joe!
+Joe, Ski Lift Operator: Just leave before you break something.
 ===
