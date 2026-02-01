@@ -13,8 +13,10 @@ using Yarn.Unity;
 public enum GameState { WALKAROUND, BATTLE}
 public class GameController : MonoBehaviour
 {
+    public Material BackgroundMaterial;
     public GameObject dog;
     public GameObject detective;
+    public GameObject Camera;
     public CameraController CameraController;
     public DogController DogController;
     public DetectiveController DetectiveController;

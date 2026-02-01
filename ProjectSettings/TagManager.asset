@@ -7,6 +7,7 @@ TagManager:
   - Dog
   - NPC
   - Item
+  - Detective
   layers:
   - Default
   - TransparentFX

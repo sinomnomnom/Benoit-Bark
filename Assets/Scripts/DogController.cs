@@ -142,25 +142,39 @@ public class DogController : MonoBehaviour
                     Services.DialogueRunner.onDialogueComplete.AddListener(() => { interacting = false; Services.GameController.SetTheme(ScentDatabase.Scents.NONE); }); 
                     break;
                 case "Item":
-                    print("Item interaction");
+                    print("Item interaction: " + closestCol.gameObject.name);
                     ItemController item = closestCol.gameObject.GetComponent<ItemController>();
-                    interacting = true;
-                    Services.GameController.SetTheme(item.scent);
-                    if (item.DialogueNode != "")
-                    {
-                        await Services.DialogueRunner.StartDialogue(item.DialogueNode);
-                    }
-                    else
-                    {
-                        await Services.DialogueRunner.StartDialogue("Smell");
-                    }
-                    Services.GameController.SetTheme(ScentDatabase.Scents.NONE);
 
                     if (item.door)
                     {
-
+                        if (!item.locked)
+                        {
+                            transform.position = item.newPlayerPos;
+                            Services.GameController.detective.transform.position = item.newIncativePlayerPos;
+                            Services.GameController.Camera.transform.position = item.newCameraPos;
+                            break;
+                        }
                     }
-                    interacting = false;
+
+                    Services.GameController.SetTheme(item.scent);
+                    if (item.DialogueNode != "")
+                    {
+                        interacting = true;
+                        await Services.DialogueRunner.StartDialogue(item.DialogueNode);
+                        Services.DialogueRunner.onDialogueComplete.AddListener(() => { interacting = false; Services.GameController.SetTheme(ScentDatabase.Scents.NONE); });
+                    }
+                    else
+                    {
+                        interacting = true;
+                        await Services.DialogueRunner.StartDialogue("Smell");
+                        Services.DialogueRunner.onDialogueComplete.AddListener(() => { interacting = false; Services.GameController.SetTheme(ScentDatabase.Scents.NONE); });
+                    }
+                    break;
+                case "Detective":
+                    interacting = true;
+                    Services.GameController.SetTheme(ScentDatabase.Scents.SMOKY);
+                    await Services.DialogueRunner.StartDialogue("DogToDetective");
+                    Services.DialogueRunner.onDialogueComplete.AddListener(() => { interacting = false; Services.GameController.SetTheme(ScentDatabase.Scents.NONE); });
                     break;
                 default:
                     print("untagged item!!!");

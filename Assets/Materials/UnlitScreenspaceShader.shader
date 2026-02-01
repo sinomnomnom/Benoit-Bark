@@ -1,62 +1,68 @@
-Shader "Tutorial/039_ScreenspaceTextures/Unlit"{
-    //show values to edit in inspector
+Shader "Tutorial/039_ScreenspaceTextures/Unlit_Blend"{
     Properties{
         _Color ("Tint", Color) = (0, 0, 0, 1)
-        _MainTex ("Texture", 2D) = "white" {}
+        _MainTex ("Texture A", 2D) = "white" {}
+        _BlendTex ("Texture B", 2D) = "white" {}
+        _Blend ("Blend", Range(0,1)) = 0
     }
 
     SubShader{
-        //the material is completely non-transparent and is rendered at the same time as the other opaque geometry
-        Tags{ "RenderType"="Opaque" "Queue"="Geometry"}
+        Tags{
+            "Queue"="Background"
+            "RenderType"="Background"
+            "PreviewType"="Skybox"
+        }
+
 
         Pass{
             CGPROGRAM
-
-            //include useful shader functions
             #include "UnityCG.cginc"
 
-            //define vertex and fragment shader
             #pragma vertex vert
             #pragma fragment frag
 
-            //texture and transforms of the texture
             sampler2D _MainTex;
+            sampler2D _BlendTex;
+
             float4 _MainTex_ST;
+            float4 _BlendTex_ST;
 
-            //tint of the texture
             fixed4 _Color;
+            float _Blend;
 
-            //the object data that's put into the vertex shader
             struct appdata{
                 float4 vertex : POSITION;
             };
 
-            //the data that's used to generate fragments and can be read by the fragment shader
             struct v2f{
                 float4 position : SV_POSITION;
                 float4 screenPosition : TEXCOORD0;
             };
 
-            //the vertex shader
             v2f vert(appdata v){
                 v2f o;
-                //convert the vertex positions from object space to clip space so they can be rendered
                 o.position = UnityObjectToClipPos(v.vertex);
                 o.screenPosition = ComputeScreenPos(o.position);
                 return o;
             }
 
-            //the fragment shader
             fixed4 frag(v2f i) : SV_TARGET{
-                float2 textureCoordinate = i.screenPosition.xy / i.screenPosition.w;
+                float2 uv = i.screenPosition.xy / i.screenPosition.w;
+
                 float aspect = _ScreenParams.x / _ScreenParams.y;
-                textureCoordinate.x = textureCoordinate.x * aspect;
-                textureCoordinate = TRANSFORM_TEX(textureCoordinate, _MainTex);
-                fixed4 col = tex2D(_MainTex, textureCoordinate);
+                uv.x *= aspect;
+
+                float2 uvA = TRANSFORM_TEX(uv, _MainTex);
+                float2 uvB = TRANSFORM_TEX(uv, _BlendTex);
+
+                fixed4 colA = tex2D(_MainTex, uvA);
+                fixed4 colB = tex2D(_BlendTex, uvB);
+
+                fixed4 col = lerp(colA, colB, _Blend);
                 col *= _Color;
+
                 return col;
             }
-
             ENDCG
         }
     }
