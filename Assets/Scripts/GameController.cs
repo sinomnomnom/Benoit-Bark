@@ -70,6 +70,7 @@ public class GameController : MonoBehaviour
        
         if (dogActive)
         {
+            dogActive = false;
             CameraController.SpinCameraAround(dog.transform.position);
             await Task.Delay(3500);
             DogController.active = false;
@@ -80,6 +81,7 @@ public class GameController : MonoBehaviour
         }
         else
         {
+            dogActive = true;
             CameraController.SpinCameraAround(detective.transform.position);
             await Task.Delay(3500);
             DogController.active = true;

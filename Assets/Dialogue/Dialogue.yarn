@@ -1,37 +1,15 @@
-title: Start
-position: -97,-73
----
-Yoga Teacher: Wow!
-Yoga Teacher: Hi there, Detective!
-
--> Hi, Im benoit!
--> Hmmm...
-
-Anyway, time to get back to yoga!
-===
-title: Mystery
-position: -80,100
----
-Yoga Teacher: hmmm, theres a mystery. You are a dog so you dont know it.
-Yoga Teacher: You are so cute though!
-===
-title: TestDoor
-position: 114,-254
----
-Hmm, theres a door here.
-===
 title: Smell
-position: -134,-245
+position: -121,-401
 ---
 *sniff*
 ===
 title: Locked
-position: 275,139
+position: 107,-399
 ---
 You can't open the door.
 ===
 title: DogToDetective
-position: -95,-73
+position: 461,-238
 ---
 <<once>>
   Detective: As a private detective, I have received a request for a search from one of your guests… Matilda is her name I believe… Sometime yesterday, we suspect one of your guests went missing in the avalanche. 
@@ -45,5 +23,19 @@ position: -95,-73
   Detective: Oh! What a cute pup! You must be Paul’s dog! Sorry your owner has gone missing, buddy. But do not fret! I am an ace detective, and no one is truly lost when I’m around. Just sit tight and let me solve this mystery.
   [TUTORIAL]: Press TAB to switch perspectives, Use SPACE to interact, and click-and-drag to move the camera.
 <<endonce>>
+<<unlock_door GameController 0>>
 Detective: Hey, there! We will be sure to find your, owner, O.K?
+===
+title: DogToMrPratt
+position: 204,-236
+---
+Mr. Pratt, Hotel Owner: Oh! Running around my desk again I see! It's a welcome surprise. I hope you find your owner... Maybe your sense of smell will help you find him!
+===
+title: DetectiveToMrPratt
+position: 281,40
+---
+Mr. Pratt, Hotel Owner: Hi again. I'm not trying to pressure you, but are you planning on buying a room? You've been running around my lodge for a bit, and the avalanche makes getting out extremely dangerous.
+ -> I would love to stay, but I will be gone shortly, just as soon as I crack the case!
+ -> I don't really DO vacation...
+Mr. Pratt, Hotel Owner: Right...
 ===

@@ -135,7 +135,7 @@ public class DetectiveController : MonoBehaviour
                     print("Item interaction");
                     break;
                 default:
-                    print("untagged item!!!");
+                    print("untagged item: " + closestCol.gameObject.name);
                     break;
             }
         }

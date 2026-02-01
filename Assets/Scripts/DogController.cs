@@ -120,6 +120,13 @@ public class DogController : MonoBehaviour
         foreach(Collider col in TriggerList)
         {
             print("interacting");
+            if(col.gameObject.tag != "NPC" &&
+                col.gameObject.tag != "Dog" &&
+                col.gameObject.tag != "Item" &&
+                col.gameObject.tag != "Detective")
+            {
+                continue;
+            }
             float testDist = Vector3.Distance(col.gameObject.transform.position, transform.position);
             if (testDist < dist)
             {
@@ -177,7 +184,7 @@ public class DogController : MonoBehaviour
                     Services.DialogueRunner.onDialogueComplete.AddListener(() => { interacting = false; Services.GameController.SetTheme(ScentDatabase.Scents.NONE); });
                     break;
                 default:
-                    print("untagged item!!!");
+                    print("untagged item: " + closestCol.gameObject.name);
                     break;
             }
         }

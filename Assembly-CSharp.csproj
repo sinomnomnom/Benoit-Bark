@@ -65,6 +65,8 @@
     <Compile Include="Assets\Scripts\NPCController.cs" />
     <Compile Include="Assets\Scripts\BillboardScript.cs" />
     <Compile Include="Assets\Scripts\ScentManager.cs" />
+    <Compile Include="Assets\Scripts\DoorManager.cs" />
+    <Compile Include="Assets\Scripts\ComicController.cs" />
     <Compile Include="Assets\Scripts\TrueBillboardScript.cs" />
     <Compile Include="Assets\Scripts\EventSystem.cs" />
     <Compile Include="Assets\Scripts\ItemController.cs" />
