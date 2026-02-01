@@ -15,6 +15,7 @@ public class ScentDatabase : MonoBehaviour
     public Sprite Mechanica;
     public Sprite Winter;
     public Sprite Sweet;
+    public Sprite Kindred;
 
     public enum Scents { BARNYARRD, BEACH,
                          CITRUS, DESERT, EVERGREEN, FLORAL, KINDRED, 
@@ -47,6 +48,8 @@ public class ScentDatabase : MonoBehaviour
                 return Winter;
             case Scents.SWEET:
                 return Sweet;
+            case Scents.KINDRED:
+                return Kindred;
             default:
                 return Backbround;
         }

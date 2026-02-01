@@ -23,6 +23,7 @@ public class ComicIntroController : MonoBehaviour
     void Start()
     {
         audioSource.PlayOneShot(music);
+        Services.GameController.SetTheme(ScentDatabase.Scents.KINDRED);
         if (panels.Length == 0)
         {
             Debug.LogError("No comic panels assigned!");
@@ -90,6 +91,7 @@ public class ComicIntroController : MonoBehaviour
 
     async void EndComic()
     {
+        Services.GameController.SetTheme(ScentDatabase.Scents.NONE);
         StartCoroutine(FadePanel(null));
         await Task.Delay(2000);
         await FadeOut();

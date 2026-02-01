@@ -23,6 +23,11 @@ public class GameController : MonoBehaviour
     public AssemblyDefinitionAsset OVRPlugin;
     public ScentDatabase ScentDatabase;
 
+    public GameObject winscreen;
+
+    public GameObject SkiMask;
+    public GameObject SkiMaskLocation;
+
     public bool dogActive = true;
 
 
@@ -91,6 +96,18 @@ public class GameController : MonoBehaviour
             detective.transform.position = temp;
         }
         switchingCam = false;
+    }
+
+    [YarnCommand("give_mask")]
+    public void InstantiateSkiMask()
+    {
+        GameObject.Instantiate(SkiMask, SkiMaskLocation.transform.position, Quaternion.identity);
+    }
+
+    [YarnCommand("win")]
+    public void Win()
+    {
+        winscreen.active = true;
     }
 
 

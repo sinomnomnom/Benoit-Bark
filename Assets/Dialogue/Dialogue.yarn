@@ -24,7 +24,15 @@ position: 319,-398
   [TUTORIAL]: Press TAB to switch perspectives, Use SPACE to interact, and click-and-drag to move the camera.
 <<endonce>>
 <<unlock_door GameController 0>>
-<<if $oily_door_smelled>>
+<<if $knows_mask_is_rosies>>
+Detective: The mask smells like floral perfume? Who's could that be...
+  ->*nod to Rosie*
+  ->*tilt head inquisitively*
+Detective: I have it! I cracked the case!
+Detective: The mask is Rosie's!
+Detective: We have to ask her what she knows!
+<<set $detective_knows_mask_is_rosies to true>>
+<<elseif $oily_door_smelled>>
 <<set $detective_told_about_oily_door to true>>
 Detective: That door over there smells oily?
 Detective: Huh, that must be the mechanics room. We should find a way in there.
@@ -55,6 +63,26 @@ Allen: Sorry I don't have any treats.
 title: DetectiveToAllen
 position: 21,-26
 ---
+<<if $knows_paul_fell_off>>
+Detective: Hello lumberjack! I have yet another question for you to ponder…
+
+Allen: Bring it on.
+
+Detective: You know the woods directly under the ski lift? Have you been there recently?
+
+Allen: Yea, actually. I’ve been scouting out the area for a sturdy Christmas tree. Real pointy trees out there. 
+
+Detective: Did you see anything? Maybe traces of a man about yea high… lots of rings… real outdoorsy type? 
+
+Allen: Does this man happen to wear pink knitted ski masks? Cause I found one an’ I actually got it with me. 
+
+Detective: Uh… I wouldn’t judge him if he did. But, I don’t think so. Can I take a look at that mask?
+
+Allen: Sure. Has a stench to it… not a bad one, maybe even a pleasant one. Just a stench. 
+
+<<give_mask GameController>>
+
+<<else>>
 Allen: ...
 Allen: *sips his whiskey*
 Detective: Uhh, hello there! Keeping warm by the fire, I see. We–I, have some questions for you about a missing guest. Er- Let me introduce myself, actually. You see, I'm a detective.
@@ -69,6 +97,7 @@ Detective: So, what kinda guy is Joe?
 Allen: He’s one of two ski lift operators on the mountain, after all, and our only mechanic, so he’s almost always in his booth. Even with the lifts down, he’s probably still sitting there.
 Detective: How do you know Joe?
 Allen: Joe and I have a bit of a feud. He drips oil everywhere, when he does get out of his cave. People blame it on me, saying it’s some of my whiskey, but if they’d just smell it, it’s clearly oil! I much prefer Michelle, the other operator who works at the top of the left. Quite beautiful, and actually spends time outside of the lift. She's actually right over there.
+<<endif>>
 ===
 title: DogToJoe
 position: 234,-156
@@ -76,10 +105,12 @@ position: 234,-156
 Joe, Ski Lift Operator: Agh! Why would they let a dog in my machine room!
 Joe, Ski Lift Operator: Well, you are cute...
 Joe, Ski Lift Operator: Just don't touch anything!
+Joe, Ski Lift Operator: ...or lick an oil!
 ===
 title: DetectiveToJoe
 position: 232,-25
 ---
+<<set $knows_about_other_skier = true>>
 Joe, Ski Lift Operator: NONONO… NO DOGS ALLOWED IN THE SKI LIFT OPERATING ROOM!!!
 Detective: Do not worry, he's a good pup.
 Joe, Ski Lift Operator: Just don't let him eat my hot Cheetos… or lick an oil.
@@ -89,21 +120,23 @@ Detective: Are you the only one who operates the lower lift?
 Joe, Ski Lift Operator: Yeah, I just said that.
 Detective: Well, we're looking for a guest at this lodge that went missing. Did you happen to see Paul Griffin go up the lift on the day of the avalanche?
 Joe, Ski Lift Operator: Of course! I know everyone that rides my lift, and Paul is one of my favorites. He actually went up about 15 minutes before the avalanche.
-Joe, Ski Lift Operator: The weird thing is, he went up with someone else. Since he's been here, I've only ever seen him go up alone. The person he was with had a full ski mask and goggles on, though. I have no idea who it was.
+Joe, Ski Lift Operator: The weird thing is, he went up with someone else. Since he's been here, I've only ever seen him go up alone. The person he was with had a fully pink knitted ski mask and goggles on, though. I have no idea who it was.
 Detective: Hmm, that's interesting. Thanks for your help, Joe!
 Joe, Ski Lift Operator: Just leave before you break something.
 ===
 
 title: DogToMatilda
-position: 443,-155
+position: 445,-148
 ---
 Matilda: Aww, hey there! We will find Paul, don't worry! *I just hope I get a few good chapters out of the search!*
 ===
 title: DetectiveToMatilda
-position: 441,-24
+position: 441,-22
 ---
-Matilda: Oh my goodness, I'm so glad
-Matilda: t=meet my sister...
+Matilda: Oh my goodness, I'm so glad you are here! A real-life detective! Oh yeah, and you can help find my Husband...
+Matilda: I'll just be writing my mystery novel. In fact, we came here because this the the same Lodge where they filmed the shining!
+Matilda: It seems like the book I'm writing about this might be an even better mystery than that!
+Matilda: *whispers*  make sure to drag out the search, I want something that will keep readers engaged and on the edge of their seat!
 
 ===
 title: Variables
@@ -111,10 +144,14 @@ position: -343,-407
 ---
 <<declare $oily_door_smelled = false>>
 <<declare $detective_told_about_oily_door = false>>
+<<declare $knows_about_other_skier = false>>
+<<declare $knows_paul_fell_off = false>>
+<<declare $knows_mask_is_rosies = false>>
+<<declare $detective_knows_mask_is_rosies = false>>
 
 ===
 title: SmellOilyDoor
-position: -121,-401
+position: -131,-540
 ---
 *sniff*
 <<set $oily_door_smelled to true>>
@@ -124,16 +161,132 @@ You should probably tell the Detective about this.
 title: DetectiveToMichelle
 position: -421,-153
 ---
-<<if $detective_told_about_oily_door>>
-Detective: Hey, Is that door the one to the mechanics room?
-Michelle: yeah, heres the key.
+<<if $knows_about_other_skier>>
+Detective: So, we talked to Joe… an interesting guy.
+Michelle: Quite dedicated to his job indeed. Did he tell you anything useful?
+Detective: He said he usually sees Paul riding the ski lift by himself, but this time he was with someone else. They were wearing a ski mask though, so he couldn’t tell who it was. Did you see their identity when they got off the ski lift? 
+Michelle: Huh, that’s weird. I never saw Paul get off the ski lift.
+
+Detective: Come again?
+
+Michelle: He never got off. Saw a bunch of skiers, but never Paul. 
+
+Detective: So you’re telling me he got on but never got off…
+
+Michelle: Yeah. That’s quite strange when I think about it.
+
+Detective: Indeed, indeed, it is strange. What do you think might have happened? He couldn’t have just disappeared into thin air… or could he? Maybe Bigfoot got him… 
+
+Michelle: Nah, those kinda things don’t happen here. He might’ve fallen off or something, but I don’t know why that would’ve happened. Could be worth checking the wooded area underneath the ski lift. 
+
+Detective: Dangnabbit! Mr. Pratt said no one is allowed out of the lodge because of the avalanche. What to do now!
+
+Michelle: Why don’t you talk to Allen again? He’s the only one who knows those woods like the back of his hand. Heck, he might’ve even been there earlier that day.
+
+<<set $knows_paul_fell_off = true>>
+<<elseif $detective_told_about_oily_door>>
+Detective: Hey, is that door the one to the mechanics room?
+Michelle: Yeah, my coworker Joe locks himself in there all the time.
+Detective: Can we talk to Joe?
+Michelle: Sure, I'll unlock it for you!
 <<unlock_door GameController 1>>
 <<else>>
 Michelle: Hey. I'm Michelle.
 <<endif>>
 ===
 title: DogToMichelle
-position: -111,-391
+position: -423,-18
 ---
 Michelle: Cute pup.
+===
+title: DogSmellsMask
+position: -344,-542
+---
+*sniff*
+The mask smells like strong floral perfume...
+<<set $knows_mask_is_rosies = true>>
+===
+title: DetectiveToDog
+position: 324,-532
+---
+Detective: Make yourself useful with that nose! I shouldn't be the one doing all the work here to find YOUR owner...
+Detective: *pets dog gently*
+===
+
+title: DetectiveToRosie
+position: 647,-160
+---
+<<if $detective_knows_mask_is_rosies>>
+Detective: ROSIE! Stop in the name of the law!
+
+Rosie: Huh? Sorry? What’s going on?
+	
+Detective: Oh, nothing, really. I just wanted to say that. ANYWAYS, I have some more questions for you. 
+
+Rosie: Of course! Happy to help!
+
+Detective: Care to explain THIS? This ski mask has your stench… quite lovely actually.
+
+Rosie: Oh! Uh- you found my mask! That’s… um… nice! I dropped it sometime while skiing. 
+	
+Detective: Skiing alone?
+
+Rosie: Yes, as always. I try to convince my friend to come with me but she’s never interested. Gamers, amiright? 
+
+Detective: And you dropped this while skiing? 
+
+Rosie: Yes, sometimes I get too speedy on the slopes. Old habits die hard!
+
+Detective: Well, something tells me you WEREN’T riding alone and you didn’t drop this while skiing!
+
+Rosie: Oh- uh- what? Haha…
+
+Detective: The ski lift operators saw you get on the ski lift with Paul. And, the mask was found in a restricted area, so you had to have dropped it while riding the lift. Most puzzling of all, Rosie, Paul didn’t get off the lift with you!
+
+Rosie: I- uhm, don’t know anything about all that! I just got on the ski lift with a stranger – I didn’t know it was Paul! And the mask probably just blew into the restricted area after I dropped it!
+
+Detective: LIES!!!
+
+Rosie: UGH fine!!! *breaks out in tears* PAUL AND I WERE HAVING AN AFFAIR!!!
+
+Detective: Wait, what?! 
+
+Rosie: HE TOOK OFF MY MASK ON THE LIFT AND KISSED ME. I WAS CAUGHT OFF GUARD SO I DROPPED THE MASK.
+
+Detective: Hold on, back up, back up. So you didn’t try to murder Paul by pushing him off?
+
+Rosie: WHAT?! OF COURSE NOT!!! I LOVE PAUL! I WOULD NEVER DO SUCH A THING.
+
+Detective: So what happened?
+
+Rosie: IT’S ALL MY FAULT!!! I was scared that without my mask, Michelle would recognize us at the top and tell Matilda that we were riding together. So, I told Paul to jump and he did! I rode to the top by myself, while Paul was left in the restricted area of the forest. He was supposed to meet me back at the lodge. I never saw him after that, since the avalanche came down! Oh dear, I really do hope he’s okay. It’s all my fault! What do I do!
+
+Detective: Matilda won’t be happy to hear about this. Or, maybe she won’t care since she’s too busy writing a mystery novel based off of this… perhaps she will be too busy writing a better ending. 
+
+Rosie: Oh, please! Just find Paul! 
+
+Detective: We can’t go out and search until the avalanche has cleared up! 
+
+Rosie: Is there really nothing we can do?!! I can show you exactly where he fell. 
+<<win GameController>>
+
+<<else>>
+Rosie: Oh! How cute! And whats this little pup’s name?
+Detective: Maybe it would do us some good to check his collar.
+Rosie: Aren’t you supposed to be the detective? Or are you just a normal guy with a pipe and trenchcoat?
+Detective: Actually, I am a detective. You might have seen an article about me in The Eugene Weekly: Local Detective Uncovers Winco Coupon Scandal?
+Rosie: ...
+Detective: It was on page 8, so maybe not. I kept telling the editor to put my picture on the cover, but she said it might be “off-putting”. Everyone loves a mystery though, right? I think it could have been just what the paper needed.
+Detective: Uh- anyways… I’m actually in the midst of my own mystery right now. Well- not a mystery. I’m just looking for a guest that’s gone missing. Do you know a Paul Griffith? About yea high, short hair, wears lots of rings, outdoorsy type… you know.
+Rosie: Oh, I’m so sorry… doesn’t ring a bell! I’ve been hitting the slopes ALL weekend, so I haven’t really gotten a chance to meet people. So sad to hear someone’s gone missing, I just barely escaped the avalanche myself! Please let me know if I could be of any help! Maybe you should talk to Joe, the ski lift operator. He sees everyone that goes up the mountain. I’m Rosie, by the way, if you need anything.
+Detective: Hmm, where could we find Joe? Probably by the ski lift machine room. Where could that be?
+Detective: *Laughing, turns to dog* If you’re going to be following me, make yourself useful. Why don’t you use your nose to sniff it out, huh?
+<<endif>>
+===
+
+
+title: DogToRosie
+position: 644,-30
+---
+Rosie: What a cutie! I’m glad you are here to keep me entertained, now that we can’t go out on the slopes.
 ===
