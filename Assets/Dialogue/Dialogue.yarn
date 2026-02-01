@@ -33,5 +33,17 @@ You can't open the door.
 title: DogToDetective
 position: -95,-73
 ---
+<<once>>
+  Detective: As a private detective, I have received a request for a search from one of your guests… Matilda is her name I believe… Sometime yesterday, we suspect one of your guests went missing in the avalanche. 
+  Detective: Do you know of a person that goes by the name of Paul Griffin?
+  Mr. Pratt, Hotel Owner: Hm, yes, I do recall that name. If I remember correctly, he was lodged in the East Wing, where we keep all of our pet friendly rooms. About yea high… short hair and lots of rings, I remember. His dog was more memorable than him, if I’m gonna be honest.
+  He came right behind the desk, and I pet his little head. Such a sweet and LOYAL companion. But detective, you can’t go out and look for him right now. Because of the avalanche, I can’t let anyone out of the hotel. You’ll have to stick to looking inside the hotel. Who knows, maybe he came back in the meantime.
+  Mr. Pratt, Hotel Owner: Wait… how did you get here through the snowstorm? The avalanche has blocked all entrances! And the road is inaccessible!
+  Detective: I have my ways… After all, no one is truly missing when I'm here, just misplaced.
+  Mr. Pratt, Hotel Owner: Doesn't that mean the same thing?
+  Detective: ...
+  Detective: Oh! What a cute pup! You must be Paul’s dog! Sorry your owner has gone missing, buddy. But do not fret! I am an ace detective, and no one is truly lost when I’m around. Just sit tight and let me solve this mystery.
+  [TUTORIAL]: Press TAB to switch perspectives, Use SPACE to interact, and click-and-drag to move the camera.
+<<endonce>>
 Detective: Hey, there! We will be sure to find your, owner, O.K?
 ===
