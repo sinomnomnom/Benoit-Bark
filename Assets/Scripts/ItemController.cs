@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class ItemController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public ScentDatabase.Scents scent;
+    public string DialogueNode;
+    public bool door;
+    public bool locked;
+    public Vector3 newPlayerPos;
+    public Vector3 newIncativePlayerPos;
+    public Vector3 newCameraPos;
 }
+

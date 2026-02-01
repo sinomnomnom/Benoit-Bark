@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -36,7 +37,7 @@ public class DogController : MonoBehaviour
         if (active && !interacting)
         {
             Move();
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && interacting == false)
             {
                 Interact();
                 print("interact!");
@@ -111,7 +112,7 @@ public class DogController : MonoBehaviour
         Services.GameController.SwitchActiveCharacter();
         active = false;
     }
-    public void Interact()
+    public async Task Interact()
     {
         Collider closestCol = collider;
 
@@ -142,6 +143,24 @@ public class DogController : MonoBehaviour
                     break;
                 case "Item":
                     print("Item interaction");
+                    ItemController item = closestCol.gameObject.GetComponent<ItemController>();
+                    interacting = true;
+                    Services.GameController.SetTheme(item.scent);
+                    if (item.DialogueNode != "")
+                    {
+                        await Services.DialogueRunner.StartDialogue(item.DialogueNode);
+                    }
+                    else
+                    {
+                        await Services.DialogueRunner.StartDialogue("Smell");
+                    }
+                    Services.GameController.SetTheme(ScentDatabase.Scents.NONE);
+
+                    if (item.door)
+                    {
+
+                    }
+                    interacting = false;
                     break;
                 default:
                     print("untagged item!!!");
