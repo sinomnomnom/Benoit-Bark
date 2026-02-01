@@ -3,6 +3,7 @@ using OVR.Data;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,8 +13,11 @@ using Yarn.Unity;
 public enum GameState { WALKAROUND, BATTLE}
 public class GameController : MonoBehaviour
 {
+    public GameObject dog;
+    public GameObject detective;
     public CameraController CameraController;
     public DogController DogController;
+    public DetectiveController DetectiveController;
     public AssemblyDefinitionAsset OVRPlugin;
     public ScentDatabase ScentDatabase;
 
@@ -56,15 +60,41 @@ public class GameController : MonoBehaviour
         //bg
     }
 
-    public void SwitchActiveCharacter()
+    public bool switchingCam = false;
+    public async void SwitchActiveCharacter()
     {
-        
-    } 
+        if (switchingCam) { return; }
+        switchingCam = true;
+       
+        if (dogActive)
+        {
+            CameraController.SpinCameraAround(dog.transform.position);
+            await Task.Delay(3500);
+            DogController.active = false;
+            DetectiveController.active = true;
+            Vector3 temp = dog.transform.position;
+            dog.transform.position = detective.transform.position;
+            detective.transform.position = temp;
+        }
+        else
+        {
+            CameraController.SpinCameraAround(detective.transform.position);
+            await Task.Delay(3500);
+            DogController.active = true;
+            DetectiveController.active = false;
+            Vector3 temp = dog.transform.position;
+            dog.transform.position = detective.transform.position;
+            detective.transform.position = temp;
+        }
+        switchingCam = false;
+    }
+
 
     public void SwitchGameState(GameState newState)
     {
         state = newState;
         Services.EventSystem.TriggerEvent(gamemodeChanged);
+        print("game state now: " + newState);
     }
 
     void Update()

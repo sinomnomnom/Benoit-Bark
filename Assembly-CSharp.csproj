@@ -67,6 +67,8 @@
     <Compile Include="Assets\Scripts\ScentManager.cs" />
     <Compile Include="Assets\Scripts\TrueBillboardScript.cs" />
     <Compile Include="Assets\Scripts\EventSystem.cs" />
+    <Compile Include="Assets\Scripts\ItemController.cs" />
+    <Compile Include="Assets\Scripts\DetectiveController.cs" />
     <Compile Include="Assets\Scripts\ScentDatabase.cs" />
     <Compile Include="Assets\Scripts\Services.cs" />
     <Compile Include="Assets\Scripts\DogController.cs" />

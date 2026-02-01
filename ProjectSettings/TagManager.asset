@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Dog
   - NPC
+  - Item
   layers:
   - Default
   - TransparentFX

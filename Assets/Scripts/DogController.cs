@@ -13,8 +13,7 @@ public class DogController : MonoBehaviour
     public Animator animator;
     public Collider collider;
     Transform cam;
-    GameController controller;
-   
+    
     List<Collider> TriggerList = new List<Collider>();
 
     public bool active = true;
@@ -41,6 +40,10 @@ public class DogController : MonoBehaviour
             {
                 Interact();
                 print("interact!");
+            }
+            else if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                SwitchPerspectives();
             }
         }
         else
@@ -103,8 +106,11 @@ public class DogController : MonoBehaviour
         Vector3 direction3d = Vector3.ClampMagnitude(forwardMovement + horizontalMovement, 1);
         return direction3d;
     }
-
-
+    public void SwitchPerspectives()
+    {
+        Services.GameController.SwitchActiveCharacter();
+        active = false;
+    }
     public void Interact()
     {
         Collider closestCol = collider;
@@ -127,7 +133,7 @@ public class DogController : MonoBehaviour
                 case "NPC":
                     print("npc interaction");
                     NPCController npc = closestCol.gameObject.GetComponent<NPCController>();
-                    string node = npc.dialogueNode;
+                    string node = npc.dogDialogueNode;
                     print(node);
                     Services.DialogueRunner.StartDialogue(node);
                     Services.GameController.SetTheme(npc.NPCScent);

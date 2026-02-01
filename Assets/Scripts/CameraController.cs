@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -32,5 +33,49 @@ public class CameraController : MonoBehaviour
             }
             LastMousePos = currentMousePos;
         }
+    }
+
+    public async Task SpinCameraAround(Vector3 pos)
+    {
+        if (locked) return;
+        locked = true;
+        Vector3 initialPos = pivotPoint.transform.position;
+        /*
+        while (Vector3.Distance(pivotPoint.transform.position, pos) > .5)
+        {
+            pivotPoint.transform.Translate((pos - pivotPoint.transform.position * Time.deltaTime), Space.World);
+            await Task.Yield();
+        }
+        */
+        
+        float rotations = 0;
+        float speed = 0f;
+        while (rotations < 2.5*360)
+        {
+            speed += (300-speed)*Time.deltaTime;
+            float rotationDistance = speed * Time.deltaTime * 2;
+            pivotPoint.transform.RotateAround(pivotPoint.transform.position, Vector3.up,rotationDistance);
+            rotations += rotationDistance;
+            await Task.Yield();
+        }
+        rotations = 0;
+        while (speed > 0)
+        {
+            speed += (-1.5f-speed) * Time.deltaTime;
+            float rotationDistance = speed * Time.deltaTime * 2;
+            pivotPoint.transform.RotateAround(pivotPoint.transform.position, Vector3.up, rotationDistance);
+            rotations += rotationDistance;
+            await Task.Yield();
+        }
+
+        /*
+        while (Vector3.Distance(pivotPoint.transform.position, pos) > .5)
+        {
+            pivotPoint.transform.Translate(( pivotPoint.transform.position-pos) * Time.deltaTime, Space.World);
+            await Task.Yield();
+        }
+        */
+        LastMousePos = Input.mousePosition;
+        locked = false;
     }
 }

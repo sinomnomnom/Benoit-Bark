@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
-    public string dialogueNode;
+    public string detectiveDialogueNode;
+    public string dogDialogueNode;
     public ScentDatabase.Scents NPCScent;
     
 }
