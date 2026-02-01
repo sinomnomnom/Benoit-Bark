@@ -24,7 +24,14 @@ position: 319,-398
   [TUTORIAL]: Press TAB to switch perspectives, Use SPACE to interact, and click-and-drag to move the camera.
 <<endonce>>
 <<unlock_door GameController 0>>
+<<if $oily_door_smelled>>
+<<set $detective_told_about_oily_door to true>>
+Detective: That door over there smells oily?
+Detective: Huh, that must be the mechanics room. We should find a way in there.
+<<else>>
 Detective: Hey, there! We will be sure to find your, owner, O.K?
+<<endif>>
+
 ===
 title: DogToMrPratt
 position: -206,-157
@@ -85,4 +92,48 @@ Joe, Ski Lift Operator: Of course! I know everyone that rides my lift, and Paul 
 Joe, Ski Lift Operator: The weird thing is, he went up with someone else. Since he's been here, I've only ever seen him go up alone. The person he was with had a full ski mask and goggles on, though. I have no idea who it was.
 Detective: Hmm, that's interesting. Thanks for your help, Joe!
 Joe, Ski Lift Operator: Just leave before you break something.
+===
+
+title: DogToMatilda
+position: 443,-155
+---
+Matilda: Aww, hey there! We will find Paul, don't worry! *I just hope I get a few good chapters out of the search!*
+===
+title: DetectiveToMatilda
+position: 441,-24
+---
+Matilda: Oh my goodness, I'm so glad
+Matilda: t=meet my sister...
+
+===
+title: Variables
+position: -343,-407
+---
+<<declare $oily_door_smelled = false>>
+<<declare $detective_told_about_oily_door = false>>
+
+===
+title: SmellOilyDoor
+position: -121,-401
+---
+*sniff*
+<<set $oily_door_smelled to true>>
+The door has a very strong scent of oil.
+You should probably tell the Detective about this.
+===
+title: DetectiveToMichelle
+position: -421,-153
+---
+<<if $detective_told_about_oily_door>>
+Detective: Hey, Is that door the one to the mechanics room?
+Michelle: yeah, heres the key.
+<<unlock_door GameController 1>>
+<<else>>
+Michelle: Hey. I'm Michelle.
+<<endif>>
+===
+title: DogToMichelle
+position: -111,-391
+---
+Michelle: Cute pup.
 ===
