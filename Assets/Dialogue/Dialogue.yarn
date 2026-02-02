@@ -241,7 +241,8 @@ Detective: Well, something tells me you WEREN’T riding alone and you didn’t 
 
 Rosie: Oh- uh- what? Haha…
 
-Detective: The ski lift operators saw you get on the ski lift with Paul. And, the mask was found in a restricted area, so you had to have dropped it while riding the lift. Most puzzling of all, Rosie, Paul didn’t get off the lift with you!
+Detective: The ski lift operators saw you get on the ski lift with Paul. And, the mask was found in a restricted area, so you had to have dropped it while riding the lift.
+Detective: Most puzzling of all, Rosie, Paul didn’t get off the lift with you!
 
 Rosie: I- uhm, don’t know anything about all that! I just got on the ski lift with a stranger – I didn’t know it was Paul! And the mask probably just blew into the restricted area after I dropped it!
 
@@ -259,7 +260,8 @@ Rosie: WHAT?! OF COURSE NOT!!! I LOVE PAUL! I WOULD NEVER DO SUCH A THING.
 
 Detective: So what happened?
 
-Rosie: IT’S ALL MY FAULT!!! I was scared that without my mask, Michelle would recognize us at the top and tell Matilda that we were riding together. So, I told Paul to jump and he did! I rode to the top by myself, while Paul was left in the restricted area of the forest. He was supposed to meet me back at the lodge. I never saw him after that, since the avalanche came down! Oh dear, I really do hope he’s okay. It’s all my fault! What do I do!
+Rosie: IT’S ALL MY FAULT!!! I was scared that without my mask, Michelle would recognize us at the top and tell Matilda that we were riding together. So, I told Paul to jump and he did! 
+Rosie: I rode to the top by myself, while Paul was left in the restricted area of the forest. He was supposed to meet me back at the lodge. I never saw him after that, since the avalanche came down! Oh dear, I really do hope he’s okay. It’s all my fault! What do I do!
 
 Detective: Matilda won’t be happy to hear about this. Or, maybe she won’t care since she’s too busy writing a mystery novel based off of this… perhaps she will be too busy writing a better ending. 
 
@@ -268,6 +270,12 @@ Rosie: Oh, please! Just find Paul!
 Detective: We can’t go out and search until the avalanche has cleared up! 
 
 Rosie: Is there really nothing we can do?!! I can show you exactly where he fell. 
+
+Rosie: Come on, you don't really think it's dangerous out there, do you?
+
+Rosie: Mr. Pratt just wants us stuck here so he can charge us for a few extra nights. Let's go, and we can bring Paul's dog with us to help the search.
+
+
 <<win GameController>>
 
 <<else>>
@@ -278,7 +286,8 @@ Detective: Actually, I am a detective. You might have seen an article about me i
 Rosie: ...
 Detective: It was on page 8, so maybe not. I kept telling the editor to put my picture on the cover, but she said it might be “off-putting”. Everyone loves a mystery though, right? I think it could have been just what the paper needed.
 Detective: Uh- anyways… I’m actually in the midst of my own mystery right now. Well- not a mystery. I’m just looking for a guest that’s gone missing. Do you know a Paul Griffith? About yea high, short hair, wears lots of rings, outdoorsy type… you know.
-Rosie: Oh, I’m so sorry… doesn’t ring a bell! I’ve been hitting the slopes ALL weekend, so I haven’t really gotten a chance to meet people. So sad to hear someone’s gone missing, I just barely escaped the avalanche myself! Please let me know if I could be of any help! Maybe you should talk to Joe, the ski lift operator. He sees everyone that goes up the mountain. I’m Rosie, by the way, if you need anything.
+Rosie: Oh, I’m so sorry… doesn’t ring a bell! I’ve been hitting the slopes ALL weekend, so I haven’t really gotten a chance to meet people. So sad to hear someone’s gone missing, I just barely escaped the avalanche myself! 
+Rosie: Please let me know if I could be of any help! Maybe you should talk to Joe, the ski lift operator. He sees everyone that goes up the mountain. I’m Rosie, by the way, if you need anything.
 Detective: Hmm, where could we find Joe? Probably by the ski lift machine room. Where could that be?
 Detective: *Laughing, turns to dog* If you’re going to be following me, make yourself useful. Why don’t you use your nose to sniff it out, huh?
 <<endif>>
