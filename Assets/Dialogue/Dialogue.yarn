@@ -37,7 +37,7 @@ Detective: We have to ask her what she knows!
 Detective: That door over there smells oily?
 Detective: Huh, that must be the mechanics room. We should find a way in there.
 <<else>>
-Detective: Hey, there! We will be sure to find your, owner, O.K?
+Detective: Hey, there! We will be sure to find your, owner, okay?
 <<endif>>
 
 ===
@@ -64,7 +64,7 @@ title: DetectiveToAllen
 position: 21,-26
 ---
 <<if $knows_paul_fell_off>>
-Detective: Hello lumberjack! I have yet another question for you to ponder…
+Detective: Hello, lumberjack! I have yet another question for you to ponder…
 
 Allen: Bring it on.
 
@@ -133,10 +133,10 @@ Matilda: Aww, hey there! We will find Paul, don't worry! *I just hope I get a fe
 title: DetectiveToMatilda
 position: 441,-22
 ---
-Matilda: Oh my goodness, I'm so glad you are here! A real-life detective! Oh yeah, and you can help find my Husband...
-Matilda: I'll just be writing my mystery novel. In fact, we came here because this the the same Lodge where they filmed the shining!
-Matilda: It seems like the book I'm writing about this might be an even better mystery than that!
-Matilda: *whispers*  make sure to drag out the search, I want something that will keep readers engaged and on the edge of their seat!
+Matilda: Oh my goodness, I'm so glad you are here! A real-life detective! Oh yeah, and you can help find my husband...
+Matilda: I'll just be writing my mystery novel. In fact, we came here because this the the same lodge where they filmed The Shining!
+Matilda: It seems like the book I'm writing about this might be an even better mystery than that! The Shining was that mystery movie with the big house and the caring nurse, right?
+Matilda: *whispers* Make sure to drag out the search, I want something intense for these next few chapters, up 'till now it's been a bit bland.
 
 ===
 title: Variables
@@ -186,7 +186,7 @@ Michelle: Why don’t you talk to Allen again? He’s the only one who knows tho
 <<set $knows_paul_fell_off = true>>
 <<elseif $detective_told_about_oily_door>>
 Detective: Hey, is that door the one to the mechanics room?
-Michelle: Yeah, my coworker Joe locks himself in there all the time.
+Michelle: Yeah, my coworker Joe locks himself in there all the time. It's annoying that he thinks it's his room, even though we are both ski lift operators.
 Detective: Can we talk to Joe?
 Michelle: Sure, I'll unlock it for you!
 <<unlock_door GameController 1>>

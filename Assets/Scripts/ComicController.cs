@@ -44,7 +44,7 @@ public class ComicIntroController : MonoBehaviour
     void AdvancePanel()
     {
         currentIndex++;
-        
+        Services.GameController.SetTheme(ScentDatabase.Scents.KINDRED);
 
         if (currentIndex >= panels.Length)
         {
