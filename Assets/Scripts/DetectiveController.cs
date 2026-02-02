@@ -42,7 +42,7 @@ public class DetectiveController : MonoBehaviour
         }
         else
         {
-            animator.SetBool("moving", false);
+            
         }
 
     }
@@ -55,12 +55,12 @@ public class DetectiveController : MonoBehaviour
         if (localDirection.x > 0 && left)
         {
             left = false;
-            animator.SetBool("left", left);
+            
         }
         if (localDirection.x < 0 && !left)
         {
             left = true;
-            animator.SetBool("left", left);
+            
         }
         if (localDirection == Vector3.zero)
         {
@@ -70,8 +70,6 @@ public class DetectiveController : MonoBehaviour
         {
             moving = true;
         }
-
-        animator.SetBool("moving", moving);
 
         velocity += direction * speed;
         velocity = Vector3.ClampMagnitude(velocity, speed);

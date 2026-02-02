@@ -1328,7 +1328,6 @@ MonoBehaviour:
   CameraController: {fileID: 963194230}
   DogController: {fileID: 1258449693}
   DetectiveController: {fileID: 8691149148909071384}
-  OVRPlugin: {fileID: 5897886265953266890, guid: a0061ccee76b93948ab6788c6ff845a9, type: 3}
   ScentDatabase: {fileID: 291435012}
   winscreen: {fileID: 1858094225}
   SkiMask: {fileID: 6744831050178882587, guid: ec293abf760ac1545bf405cd7465513f, type: 3}
@@ -8262,7 +8261,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.281
   m_Pitch: 1
   Loop: 0
   Mute: 0

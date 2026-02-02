@@ -22,6 +22,8 @@ public class ScentManager
         olfactoryEpithelium = nose;
     }
 
+    public ScentManager() { }
+
     public void SetActiveScent(ScentDatabase.Scents scent)
     {
         SetBackground(scent);
@@ -39,7 +41,7 @@ public class ScentManager
 
     public void Update()
     {
-        if (activeScent != null) olfactoryEpithelium.PlayOdor(activeScent, 1f);
+        //if (activeScent != null) olfactoryEpithelium.PlayOdor(activeScent, 1f);
     }
 
 
@@ -47,14 +49,14 @@ public class ScentManager
 
     public void SetBackground(ScentDatabase.Scents scent)
     {
-        // Cancel any ongoing fade
+       
         fadeCTS?.Cancel();
         fadeCTS = new CancellationTokenSource();
 
         Sprite newSprite = Services.ScentDatabase.GetSpriteFromScent(scent);
         Sprite oldSprite = Services.ScentDatabase.GetSpriteFromScent(ActiveScentEnum);
 
-        // Get current blend state to use as starting texture
+       
         Material mat = Services.GameController.BackgroundMaterial;
 
         mat.SetTexture("_MainTex", oldSprite.texture);

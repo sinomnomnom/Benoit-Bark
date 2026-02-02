@@ -4,7 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using UnityEditorInternal;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -20,7 +20,6 @@ public class GameController : MonoBehaviour
     public CameraController CameraController;
     public DogController DogController;
     public DetectiveController DetectiveController;
-    public AssemblyDefinitionAsset OVRPlugin;
     public ScentDatabase ScentDatabase;
 
     public GameObject winscreen;
@@ -32,6 +31,8 @@ public class GameController : MonoBehaviour
 
 
     public GameState state { get; private set; } = GameState.WALKAROUND;
+    //public AssemblyDefinitionAsset OVRPlugin { get; private set; }
+
     private GameState nextState = GameState.WALKAROUND;
 
     private Event gamemodeChanged;
@@ -50,7 +51,8 @@ public class GameController : MonoBehaviour
         Services.GameController = this;
         Services.EventSystem = new EventSystem();
         Services.DialogueRunner = dialogueRunner;
-        Services.ScentManager = new ScentManager(OVRPlugin, olfactoryEpithelium);
+        //Services.ScentManager = new ScentManager(OVRPlugin, olfactoryEpithelium);
+        Services.ScentManager = new ScentManager();
         Services.ScentDatabase = ScentDatabase;
         /*
         Services.Prefabs = GameObject.FindObjectOfType<Prefabs>();
